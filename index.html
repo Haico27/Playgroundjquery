@@ -59,7 +59,12 @@
         <p>Text size: <input id="textsize" type="range" name="textsize" min="1" max="30" value="16" size="5"></p>
         <p>Line height: <input id="lineheight" type="range" name="lineheight" min="8" max="40" value="18" size="5"></p>
         <p>Padding: <input id="textpadding" type="range" name="textpadding" value="10" size="5"></p>
-
+      </div>
+      <div class="control">
+        <h2>Extra</h2>
+        <p><input id="underline" type="checkbox" value="none">Underline</p>
+        <p><input id="smallcaps" type="checkbox" value="normal">Small caps</p>
+        <p><input id="bold" type="checkbox" value="normal">Bold</p>
       </div>
     </div>
     </form>
@@ -76,6 +81,7 @@ var canvas = $('#canvas');
 canvas.css('border', '1px dashed #000');
 canvas.css('padding', '10px');
 canvas.css('font', '16px/18px "times new roman",times,serif' );
+canvas.css('text-decoration', 'none');
 
 function validate() {
   //validate textcolor
@@ -114,6 +120,14 @@ $(document).ready(function() {
 
   $('#textpadding').change(function(e) {
     canvas.css('padding', e.target.value + 'px');
+  })
+
+  $('#underline').change(function() {
+    if (checkbox.checked) {
+      canvas.css('text-decoration', 'underline')
+    } else {
+      canvas.css('text-decoration', 'none')
+    }
   })
 
 
