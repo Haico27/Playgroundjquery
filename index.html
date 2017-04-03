@@ -83,6 +83,8 @@ canvas.css('padding', '10px');
 canvas.css('font', '16px/18px "times new roman",times,serif' );
 canvas.css('text-decoration', 'none');
 
+
+
 function validate() {
   //validate textcolor
   //validate background-color
@@ -122,13 +124,19 @@ $(document).ready(function() {
     canvas.css('padding', e.target.value + 'px');
   })
 
-  $('#underline').change(function() {
-    if (checkbox.checked) {
-      canvas.css('text-decoration', 'underline')
-    } else {
-      canvas.css('text-decoration', 'none')
-    }
+  $('#underline').bind('change', function() {
+    canvas.css('text-decoration', 'underline');
   })
+
+  $('#smallcaps').bind('change', function() {
+    canvas.css('font-variant', 'small-caps');
+  })
+
+  $('#bold').bind('change', function() {
+    canvas.css('font-weight', 'bold');
+  })
+
+
 
 
 
