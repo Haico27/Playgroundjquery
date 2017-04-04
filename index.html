@@ -85,6 +85,7 @@ canvas.css('text-decoration', 'none');
 
 
 
+
 function validate() {
   //validate textcolor
   //validate background-color
@@ -125,15 +126,33 @@ $(document).ready(function() {
   })
 
   $('#underline').change(function() {
-    canvas.css('text-decoration', 'underline');
+    var checkbox = this;
+
+    if (checkbox.checked) {
+      canvas.css('text-decoration', 'underline');
+    } else {
+      canvas.css('text-decoration', 'none');
+    }
   })
 
   $('#smallcaps').change(function() {
-    canvas.css('font-variant', 'small-caps');
+    var checkbox = this;
+
+    if (checkbox.checked) {
+      canvas.css('font-variant', 'small-caps');
+    } else {
+      canvas.css('font-variant', 'normal');
+    }
   })
 
   $('#bold').change(function() {
-    canvas.css('font-weight', 'bold');
+    var checkbox = this;
+
+    if (checkbox.checked) {
+      canvas.css('font-weight', 'bold');
+    } else  {
+      canvas.css('font-weight', 'normal');
+    }
   })
 
 
