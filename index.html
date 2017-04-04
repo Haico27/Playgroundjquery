@@ -28,11 +28,11 @@
       padding: 0;
     }
 
-    input.invalid {
+    .validation.invalid {
       border: 2px solid red;
     }
 
-    input.valid {
+    .validation.valid {
       border: 2px solid green;
     }
 
@@ -60,8 +60,8 @@
       </div>
       <div class="control">
         <h2>Color</h2>
-        <p>Text: <input id="textcolor" type="text" name="textcolor" value="#000" size="7"></p>
-        <p>Background: <input id="bgcolor" type="text" name="bgcolor" value="#fff" size="7"></p>
+        <p>Text: <input class="validation" id="textcolor" type="text" name="textcolor" value="#000" size="7"></p>
+        <p>Background: <input class="validation" id="bgcolor" type="text" name="bgcolor" value="#fff" size="7"></p>
       </div>
       <div class="control">
         <h2>Spacing</h2>
@@ -115,12 +115,16 @@ $(document).ready(function() {
   })
 
   $('#textcolor').keyup(function(e) {
-    var input = $(this);
-    var regExpres =
-    var isValid =
+    var input = $(this); // captures the input of the user
+    var re = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/ ; // regular expression for validating the input
+    var isValid = re.test(input.val()); //checks if the input matches the regular expression
     if (isValid) {
+      console.log("Input is caught!")
       input.removeClass('invalid').addClass('valid');
       canvas.css('color', e.target.value);
+    } else {
+      input.removeClass('valid').addClass('invalid');
+      $('.validation').html("Input not valid, please enter a valid hexadecimal number")
     }
 
   })
