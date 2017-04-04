@@ -21,7 +21,7 @@
       display: flex;
     }
     .control {
-      width: 33%;
+      width: 25%;
     }
     .control ul {
       list-style: none;
@@ -34,6 +34,10 @@
 
     .validation.valid {
       border: 2px solid green;
+    }
+
+    button#exportbutton {
+      margin: 20px auto;
     }
 
   </style>
@@ -80,6 +84,13 @@
 
     <div id="canvas">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+
+    <div>
+      <button id='exportbutton'>Export CSS</button>
+    </div>
+
+    <div id='exportdata'>
     </div>
 
   </div>
@@ -136,6 +147,7 @@ $(document).ready(function() {
       canvas.css('background-color', e.target.value);
     } else { // if it doesn't match, the css will not be modified and the input field will have a red border
       input.removeClass('valid').addClass('invalid');
+
     }
   })
 
@@ -180,6 +192,12 @@ $(document).ready(function() {
       canvas.css('font-weight', 'normal');
     }
   })
+
+  function printCSS() {
+    var content = this;
+
+    
+  }
 
 
 
