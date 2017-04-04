@@ -118,19 +118,25 @@ $(document).ready(function() {
     var input = $(this); // captures the input of the user
     var re = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/ ; // regular expression for validating the input
     var isValid = re.test(input.val()); //checks if the input matches the regular expression
-    if (isValid) {
-      console.log("Input is caught!")
+    if (isValid) { // if it matches, then the css of the canvas will be modified
       input.removeClass('invalid').addClass('valid');
       canvas.css('color', e.target.value);
-    } else {
+    } else { // if it doesn't match, the css will not be modified and the input field will have a red border
       input.removeClass('valid').addClass('invalid');
-      $('.validation').html("Input not valid, please enter a valid hexadecimal number")
     }
 
   })
 
   $('#bgcolor').keyup(function(e) {
-    canvas.css('background-color', e.target.value);
+    var input = $(this); // captures the input of the user
+    var re = /^#([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$/ ; // regular expression for validating the input
+    var isValid = re.test(input.val()); //checks if the input matches the regular expression
+    if (isValid) { // if it matches, then the css of the canvas will be modified
+      input.removeClass('invalid').addClass('valid');
+      canvas.css('background-color', e.target.value);
+    } else { // if it doesn't match, the css will not be modified and the input field will have a red border
+      input.removeClass('valid').addClass('invalid');
+    }
   })
 
   $('#textsize').change(function(e) {
