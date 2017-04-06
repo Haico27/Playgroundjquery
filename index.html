@@ -40,7 +40,7 @@
       margin: 20px auto;
     }
 
-    #exportdata {
+    .export {
       border: 2px solid black;
     }
 
@@ -188,16 +188,23 @@ $(document).ready(function() {
     var $font = $('input[type=radio][name=fontname]').val();
     var $textcolor = $('#textcolor').val();
     var $bgcolor = $('#bgcolor').val();
+    var $textsize = $('#textsize').val();
+    var $lineheight = $('#lineheight').val();
+    var $padding = $('#textpadding').val();
 
     //create the html to print on the screen
     var $html = $(
-      '<div class="export">' +
+      '<div>' +
         '<p><strong>Font:</strong> ' + $font +
         '</p><p><strong>Text-color:</strong> ' + $textcolor +
         '</p><p><strong>Background-color:</strong> ' + $bgcolor +
-      '</div>');
+        '</p><p><strong>Text-size</strong> ' + $textsize +
+        '</p><p><strong>Line-height</strong> ' + $lineheight +
+        '</p><p><strong>Padding</strong> ' + $padding +
+      '</p></div>');
 
     //attach the new element to the page
+    $('#exportdata').addClass('export');
     $('#exportdata').append($html);
 
 
