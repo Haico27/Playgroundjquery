@@ -40,6 +40,10 @@
       margin: 20px auto;
     }
 
+    #exportdata {
+      border: 2px solid black;
+    }
+
   </style>
   <script src="https://code.jquery.com/jquery-2.2.3.min.js"
   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="
@@ -87,7 +91,7 @@
     </div>
 
     <div>
-      <button id='exportbutton'>Export CSS</button>
+      <button type="button" id='export-button'>Export CSS</button>
     </div>
 
     <div id='exportdata'>
@@ -103,21 +107,6 @@ canvas.css('padding', '10px');
 canvas.css('font', '16px/18px "times new roman",times,serif' );
 canvas.css('text-decoration', 'none');
 
-
-
-
-function validate() {
-  //validate textcolor
-  //validate background-color
-  //validate textsize
-  //validate lineheight
-  var lineHeight = $('#lineheight').val();
-  if (lineHeight = NaN) {
-    alert("Invalid input, please insert a number");
-  }
-  //validate padding
-
-}
 
 $(document).ready(function() {
   // Code here will run when the page has loaded.
@@ -193,11 +182,29 @@ $(document).ready(function() {
     }
   })
 
-  function printCSS() {
-    var content = this;
+//exports the chosen CSS-settings to the bottom of the page
+  $('#export-button').on('click', function() {
+    //grab the info from the playground
+    var $font = $('input[type=radio][name=fontname]').val();
+    var $textcolor = $('#textcolor').val();
+    var $bgcolor = $('#bgcolor').val();
 
-    
-  }
+    //create the html to print on the screen
+    var $html = $(
+      '<div class="export">' +
+        '<p><strong>Font:</strong> ' + $font +
+        '</p><p><strong>Text-color:</strong> ' + $textcolor +
+        '</p><p><strong>Background-color:</strong> ' + $bgcolor +
+      '</div>');
+
+    //attach the new element to the page
+    $('#exportdata').append($html);
+
+
+
+
+  })
+
 
 
 
